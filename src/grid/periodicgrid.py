@@ -357,7 +357,7 @@ class PeriodicGrid(Grid):
         PeriodicGrid
             A new PeriodicGrid object with selected points.
         """
-        if isinstance(index, int):
+        if isinstance(index, (int, np.integer)):
             return self.__class__(
                 np.array([self.points[index]]),
                 np.array([self.weights[index]]),

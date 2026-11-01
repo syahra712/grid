@@ -98,7 +98,7 @@ class Grid:
 
         Parameters
         ----------
-        index : int or slice
+        index : int, np.integer or slice
             index of slice object for selecting certain part of the grid
 
         Returns
@@ -106,7 +106,7 @@ class Grid:
         Grid
             Return a new Grid object with selected points
         """
-        if isinstance(index, int):
+        if isinstance(index, (int, np.integer)):
             return self.__class__(np.array([self.points[index]]), np.array([self.weights[index]]))
         else:
             return self.__class__(np.array(self.points[index]), np.array(self.weights[index]))
@@ -456,7 +456,7 @@ class OneDGrid(Grid):
 
         Parameters
         ----------
-        index : int or slice
+        index : int, np.integer or slice
             index of slice object for selecting certain part of grid
 
         Returns
@@ -464,7 +464,7 @@ class OneDGrid(Grid):
         OneDGrid
             Return a new grid instance with a subset of points.
         """
-        if isinstance(index, int):
+        if isinstance(index, (int, np.integer)):
             return OneDGrid(
                 np.array([self.points[index]]),
                 np.array([self.weights[index]]),
